@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pygame = "*"
+mediapipe = "*"
+protobuf = "~=3.2"
 
 [dev-packages]
 flake8 = "*"
