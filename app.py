@@ -3,8 +3,7 @@
 __author__ = 'moejitow'
 
 from art_with_ai.main import main
-import sys
-import pygame as pg
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     main()

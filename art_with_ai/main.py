@@ -1,6 +1,7 @@
 __author__ = 'moejitow'
 
-import sys, pygame
+import sys
+import pygame
 from pygame.locals import QUIT
 from art_with_ai import display
 
