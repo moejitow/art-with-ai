@@ -1,18 +1,14 @@
 __author__ = 'moejitow'
 
 import sys, pygame
-from pygame.locals import*
-from art_with_ai import constants as c
+from pygame.locals import QUIT
+from art_with_ai import display
 
 
 def main():
-    screen=pygame.display.set_mode(c.SCREEN_SIZE)
-    screen.fill(c.DARK_GREY)
-    pygame.display.flip()
+    display.init_screen()
 
-    pygame.draw.line(screen, c.RED, (60, 80), (10, 100))
-
-    pygame.display.flip()
+    display.draw_lines()
 
     while True:
         for events in pygame.event.get():
