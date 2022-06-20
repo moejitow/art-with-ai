@@ -13,8 +13,24 @@ def init_screen():
     pygame.display.flip()
 
 
-def draw_lines():
-    print(screen)
-    pygame.draw.line(screen, c.RED, (60, 80), (10, 100))
+def draw_lines(landmarks: list):
+    try:
+        count = 0
+        while count < len(landmarks):
+            curr = (
+                landmarks[count]['x'] * c.SCREEN_WIDTH,
+                landmarks[count]['y'] * c.SCREEN_HEIGHT
+            )
+            next = (
+                landmarks[count+1]['x'] * c.SCREEN_WIDTH,
+                landmarks[count+1]['y'] * c.SCREEN_HEIGHT
+            )
+
+            pygame.draw.line(screen, c.RED, curr, next)
+
+            count += 1
+
+    except IndexError:
+        pass
 
     pygame.display.flip()
