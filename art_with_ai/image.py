@@ -1,5 +1,6 @@
 __author__ = 'moejitow'
 
+from re import I
 import cv2
 import mediapipe as mp
 import pygame
@@ -21,9 +22,14 @@ def collect_landmarks():
         # Convert the BGR image to RGB before processing
         results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 
-        if results.multi_hand_landmarks:
-            for hand_landmarks in results.multi_hand_landmarks:
-                print('hand_landmarks:', hand_landmarks)
+        landmarks = []
+
+        try:
+            for face in results.multi_hand_landmarks:
+                for landmark in face.landmark:
+                    landmarks.append({'x': landmark.x, 'y': landmark.y})
+        finally:
+            return landmarks
 
 
 def take_image():
