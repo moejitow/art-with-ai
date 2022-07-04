@@ -26,7 +26,7 @@ def draw_lines(landmarks: list):
                 landmarks[count+1]['y'] * c.SCREEN_HEIGHT
             )
 
-            pygame.draw.line(screen, c.RED, curr, next)
+            pygame.draw.line(screen, c.RED, curr, next, 2)
 
             count += 1
 
