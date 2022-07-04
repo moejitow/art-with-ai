@@ -11,13 +11,19 @@ from art_with_ai import image
 def main():
     display.init_screen()
 
-    while True:
+    prev_landmarks = []
 
+    while True:
         image.take_image()
-        landmarks = image.collect_landmarks()
-        display.draw_lines(landmarks)
-        time.sleep(1)
+
+        curr_landmarks = image.collect_fingertip_landmarks()
+
+        if (curr_landmarks):
+            display.draw_hand_motion(prev_landmarks, curr_landmarks)
+            prev_landmarks = curr_landmarks
 
         for events in pygame.event.get():
             if events.type == QUIT:
                 sys.exit(0)
+
+        time.sleep(1)

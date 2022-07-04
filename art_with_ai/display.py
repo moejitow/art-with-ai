@@ -13,6 +13,23 @@ def init_screen():
     pygame.display.flip()
 
 
+def draw_hand_motion(prev_landmarks: list, curr_landmarks: list):
+
+    if prev_landmarks and curr_landmarks:
+        for count, value in enumerate(prev_landmarks):
+            prev = (
+                value['x'] * c.SCREEN_WIDTH,
+                value['y'] * c.SCREEN_HEIGHT
+            )
+            curr = (
+                curr_landmarks[count]['x'] * c.SCREEN_WIDTH,
+                curr_landmarks[count]['y'] * c.SCREEN_HEIGHT
+            )
+            pygame.draw.line(screen, c.RED, prev, curr, 2)
+
+    pygame.display.flip()
+
+
 def draw_lines(landmarks: list):
     try:
         count = 0
