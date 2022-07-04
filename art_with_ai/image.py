@@ -71,6 +71,3 @@ def take_image():
         img = cam.get_image()
         pygame.image.save(img, IMG_NAME)
         cam.stop()
-
-
-collect_fingertip_landmarks()
