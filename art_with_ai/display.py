@@ -30,9 +30,14 @@ def draw_hand_motion(prev_landmarks: list, curr_landmarks: list):
     pygame.display.flip()
 
 
+color_counter = 0
+
+
 def draw_lines(landmarks: list):
+    global color_counter
     try:
         count = 0
+        color_counter += 1
         while count < len(landmarks):
             curr = (
                 landmarks[count]['x'] * c.SCREEN_WIDTH,
@@ -43,7 +48,13 @@ def draw_lines(landmarks: list):
                 landmarks[count+1]['y'] * c.SCREEN_HEIGHT
             )
 
-            pygame.draw.line(screen, c.RED, curr, next, 2)
+            pygame.draw.line(
+                screen,
+                c.COLORS[color_counter % 5],
+                curr,
+                next,
+                2
+            )
 
             count += 1
 
