@@ -25,7 +25,7 @@ def draw_hand_motion(prev_landmarks: list, curr_landmarks: list):
                 curr_landmarks[count]['x'] * c.SCREEN_WIDTH,
                 curr_landmarks[count]['y'] * c.SCREEN_HEIGHT
             )
-            pygame.draw.line(screen, c.RED, prev, curr, 2)
+            pygame.draw.line(screen, c.COLORS[count], prev, curr, 2)
 
     pygame.display.flip()
 
